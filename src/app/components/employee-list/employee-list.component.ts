@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../employee';
 import { EmployeeService } from '../../service/employee.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
