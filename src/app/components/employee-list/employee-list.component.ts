@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../employee';
+import { EmployeeService } from '../../service/employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -12,33 +13,20 @@ export class EmployeeListComponent {
   
   // array do tipo Employee para armazenar os dados dos funcionários
   employees!: Employee[];
-
-  constructor() {}
+  
+  // injeção de dependência do serviço EmployeeService para obter os dados dos funcionários
+  constructor(private employeeService: EmployeeService) {}
   
   // método ngOnInit é chamado quando o componente é inicializado 
   ngOnInit(): void {
-    this.employees = [
-      {
-        id: 1,
-        firstName: 'John',
-        lastName: 'Doe',
-        emailId: 'john.doe@example.com',
-        departament: 'IT'
-      },
-      {
-        id: 2,
-        firstName: 'Jane',
-        lastName: 'Smith',
-        emailId: 'jane.smith@example.com',
-        departament: 'HR'
-      },
-      {
-        id: 3,
-        firstName: 'Bob',
-        lastName: 'Johnson',
-        emailId: 'bob.johnson@example.com',
-        departament: 'Finance'
-      }
-    ];
+    this.getEmployees();
   }
+
+  // método para obter a lista de funcionários do serviço EmployeeService
+  private getEmployees(){
+    this.employeeService.getEmployeeList().subscribe(data => {
+      this.employees = data;
+    });
+  }
+
 }
