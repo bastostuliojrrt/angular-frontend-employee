@@ -1,23 +1,27 @@
-<h2>Employee List</h2>
-<table class="table table-striped">
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <h2>Employee List</h2>
+  <table class="table table-striped">
     <thead>
-        <tr>
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email</th>
         <th scope="col">Department</th>
-        </tr>
+      </tr>
     </thead>
     <tbody>
-        @for(employee of employees; track employee.id) {
-            <tr>
-                <td>{{ employee.id }}</td>
-                <td>{{ employee.firstName }}</td>
-                <td>{{ employee.lastName }}</td>
-                <td>{{ employee.emailId }}</td>
-                <td>{{ employee.departamentId }}</td>
-            </tr>
-        }
+      @for (employee of employees; track employee.id) {
+        <tr>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.emailId }}</td>
+          <td>{{ employee.departamentId }}</td>
+        </tr>
+      }
     </tbody>
-</table>
+  </table>
+</div>
