@@ -13,3 +13,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.alert-container{
+    position: absolute;
+    bottom: 50px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
