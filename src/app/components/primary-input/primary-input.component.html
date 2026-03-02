@@ -1,0 +1,11 @@
+
+  <div class="input-group mb-3 w-auto">
+    <ng-content></ng-content>
+    <input
+      class="form-control"
+      [type]="type"
+      [value]="value"
+      (input) = "onInput($event)"
+    />
+  </div>
+
