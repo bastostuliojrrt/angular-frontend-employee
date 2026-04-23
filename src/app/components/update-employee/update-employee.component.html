@@ -1,1 +1,41 @@
-<p>update-employee works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="d-flex flex-column text-center">
+    <h3 class="mb-4">Create Employee</h3>
+
+    <form [formGroup]="updateEmployeeForm" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
+        
+        <div class="d-flex justify-content-center row">
+            <div class="d-flex gap-2 col-8 ">
+                <div class="col 4 form-group">
+                    <app-primary-input type="email" formControlName="emailId"><span class="input-group-text" id="basic-addon1">Email</span></app-primary-input>
+                </div>
+
+                <div class="col 4 form-group">
+                    <app-primary-input type="text" formControlName="firstName" ><span class="input-group-text" id="basic-addon1">First Name</span></app-primary-input>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 col-8  justify-content-center">
+                <div class="col 4 form-group">
+                    <app-primary-input type="text" formControlName="lastName" ><span class="input-group-text" id="basic-addon1">Last Name</span></app-primary-input>
+                </div>
+                
+                <div class="col 4 form-group">
+                    <app-primary-input type="text" formControlName="departamentId"><span class="input-group-text" id="basic-addon1">Departament</span></app-primary-input>
+                </div>
+            </div>
+
+            <div class="d-flex mt-3 col-8 justify-content-end">
+                <button type="submit" class="col-2 btn btn-primary"><img src="../../../assets/floppy2-fill.svg" alt="save-image"></button>
+            </div>
+        </div>
+
+        
+
+    </form>
+</div>
+
+<div id="alert" class="alert-container start-50 translate-middle-x">
+
+</div>
