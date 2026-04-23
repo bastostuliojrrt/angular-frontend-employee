@@ -62,7 +62,7 @@ export class UpdateEmployeeComponent {
     return this.employeeService.updateEmployee(this.id, this.updateEmployeeForm.value).subscribe({
       next: (data) => {
         this.alertService.create("Employee updated successfully!", "success", "alert");
-        this.goToEmployeeList();
+        // this.goToEmployeeList();
       },
       error: (err) => {
         this.alertService.create("Error updating employee. Please try again.", "danger", "alert");
