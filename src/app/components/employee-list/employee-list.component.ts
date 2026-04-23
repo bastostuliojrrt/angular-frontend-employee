@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Employee } from '../../employee';
 import { EmployeeService } from '../../service/employee.service';
 
@@ -15,7 +15,7 @@ export class EmployeeListComponent {
   employees!: Employee[];
   
   // injeção de dependência do serviço EmployeeService para obter os dados dos funcionários
-  constructor(private employeeService: EmployeeService) {}
+  employeeService = inject(EmployeeService);
   
   // método ngOnInit é chamado quando o componente é inicializado 
   ngOnInit(): void {
