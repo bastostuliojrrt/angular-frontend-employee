@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Employee } from '../../employee';
 import { EmployeeService } from '../../service/employee.service';
 import { Router } from '@angular/router';
+import { AlertService } from '../../service/alert.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,6 +18,7 @@ export class EmployeeListComponent {
   
   // injeção de dependência do serviço EmployeeService para obter os dados dos funcionários
   employeeService = inject(EmployeeService);
+  alertService = inject(AlertService);
   router = inject(Router);
   
   // método ngOnInit é chamado quando o componente é inicializado 
@@ -33,6 +35,20 @@ export class EmployeeListComponent {
 
   updateEmployee(id: number){
     this.router.navigate(['update-employee', id]);
+  }
+
+  deleteEmployee(id: number){
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.getEmployees();
+        debugger;
+        this.alertService.create("Employee deleted successfully!", "success", "alert");
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
 }
