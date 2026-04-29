@@ -33,16 +33,17 @@ export class EmployeeListComponent {
     });
   }
 
+  // método para navegar para a página de atualização de funcionário, passando o ID do funcionário como parâmetro
   updateEmployee(id: number){
     this.router.navigate(['update-employee', id]);
   }
 
+  // método para excluir um funcionário, chamando o método deleteEmployee do serviço EmployeeService e atualizando a lista de funcionários após a exclusão
   deleteEmployee(id: number){
     this.employeeService.deleteEmployee(id).subscribe({
       next: (data) => {
         console.log(data);
         this.getEmployees();
-        debugger;
         this.alertService.create("Employee deleted successfully!", "success", "alert");
       },
       error: (err) => {
